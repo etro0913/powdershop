@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>카카오톡 버튼있는 메시지 전송하기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img
+    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+</a>
+<script type="text/javascript">
+ Kakao.init('d6f82d35a843503db0aa8e037b97698e');
+
+  function sendLink() {
+
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '파우더샵 바로가기',
+        description: '파우더샵 웹 페이지 바로가기',
+        imageUrl:
+          'https://powder.shop/wp-content/uploads/2021/05/POWDER-SHOP_logo_Color.png',
+        link: {
+          mobileWebUrl: 'https://powder.shop/',
+          webUrl: 'https://powder.shop/',
+        },
+      },
+      social: {
+        likeCount: 99999, //99999가 최대입니다
+        commentCount: 99999, //99999가 최대입니다
+        sharedCount: 99999, //99999가 최대입니다
+      },
+      buttons: [
+        {
+          title: '버튼1 글자',
+          link: {
+            mobileWebUrl: '클릭시 모바일 주소',
+            webUrl: '클릭시 PC 주소',
+          },
+        },
+      ],
+    })
+  }
+</script>
+<!-- www.blackcats4567.com -->
+<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+  </body>
+</html>
